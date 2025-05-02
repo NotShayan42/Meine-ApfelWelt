@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Snake - Meine Apfelwelt</title>
+    <meta charset="UTF-8" />
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <script src="script.js"></script>
+    <script src="snake.js"></script>
+  </head>
+  <body>
+    <nav>
+      <div class="logo">
+        <i class="fas fa-apple-alt"></i> Meine Apfelwelt
+      </div>
+      <div class="nav-links">
+        <a href="main.html">Home</a>
+        <a href="snake.html"aria-current="page">Snake</a>
+        <a href="archery.html">Äpfelschießen</a>
+        <a href="facts.html">Apfel Fakten</a>
+        <a href="catch.html">Äpfelfangen</a>
+      </div>
+    </nav>
+    
+    <div class="apple-container">
+      <div class="falling-apple" id="fallingApple">🍎</div>
+    </div>
+
+    <main>
+      <div class="hero">
+        <h1>Snake Spiel</h1>
+        <p>Kontrolliere die Schlange und verschlinge soviele Äpfel wie du nur kannst!</p>
+      </div>
+      
+      <div class="game-container">
+        <div class="score">Score: <span id="score">0</span></div>
+        <canvas id="gameCanvas" class="game-canvas" width="400" height="400"></canvas>
+        <div class="game-controls">
+          <button id="startBtn" class="game-btn-control">Start Game</button>
+          <button id="resetBtn" class="game-btn-control">Reset</button>
+        </div>
+        <div class="instructions">
+          <h3>Wie man spielt</h3>
+          <p>Benutze die Pfeiltasten oder WASD um die Schlange zu kontrollieren. Auf Ipad/Handy kannst du die gewünschte Richtung Swipen. Iss Äpfel um größer zu werden und Punkte zu bekommen. Meide den Rand zu berühren oder dich selbst zu Berühren!</p>
+        </div>
+      </div>
+    </main>
+    
+    <footer>
+      <p>&copy; 2025 meine Apfel Welt</p>
+      <p>von S Z</p>
+      <a href="https://www.flaticon.com/free-icons/leaves" title="leaves icons">Leaves icons created by KP Arts - Flaticon</a>
+      <a href="https://www.flaticon.com/free-icons/hunting" title="hunting icons">Hunting icons created by Freepik - Flaticon</a>  
+      <a href="https://www.freepik.com" title="Apple Images">Apple Images Created by Freepik</a>
+      <a href="https://www.vecteezy.com/free-png/png">Png PNGs by Vecteezy</a>
+      <a href="https://www.vecteezy.com/free-png/fruit">Fruit PNGs by Vecteezy</a>
+      <a href="https://www.flaticon.com/free-icons/basket" title="basket icons">Basket icons created by Freepik - Flaticon</a> <br>
+      <p>
+        Icons from the <a href="https://fonts.google.com/emoji">Noto Emoji</a> project by Google, licensed under the
+        <a href="https://www.apache.org/licenses/LICENSE-2.0">Apache License 2.0</a>.
+        <a href="https://fontawesome.com/license/free" target="_blank">Icons © Font Awesome — Lizenz: Font Awesome Free License</a>
+      </p>      
+    </footer>
+  </body>
+</html>
