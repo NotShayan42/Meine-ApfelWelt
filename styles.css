@@ -371,6 +371,12 @@ footer {
   border: 2px solid var(--primary-color);
 }
 
+.snake-canvas {
+  width: 475px;
+  height: 475px;
+  image-rendering: auto;
+}
+
 .game-controls {
   display: flex;
   justify-content: center;
