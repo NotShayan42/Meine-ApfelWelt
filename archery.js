@@ -72,7 +72,7 @@ yellowAppleImg.src = 'gelberApfel.png';
       x: canvas.width + size,
       y: Math.random() * (canvas.height - 100) + 50,
       size: size,
-      speed: Math.random() * 3 + 2, // ZUfällige Geschwindigkeit
+      speed: Math.random() * 4 + 3, // ZUfällige Geschwindigkeit
       rotation: 0,
       rotationSpeed: (Math.random() - 0.5) * 0.1
     };
@@ -156,7 +156,7 @@ yellowAppleImg.src = 'gelberApfel.png';
     }
     
     // Erzeugt zufällig neue Äpfel
-    if (Math.random() < 0.02) {
+    if (Math.random() < 0.06) {
       createApple();
     }
     
