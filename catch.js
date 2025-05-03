@@ -72,7 +72,7 @@ document.addEventListener('DOMContentLoaded', () => {
       x: Math.random() * (canvas.width - 30),
       y: -30,
       size: 30,
-      speed: Math.random() * 2 + 2
+      speed: Math.random() * 3 + 4
     };
     
     apples.push(apple);
@@ -109,7 +109,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     
     // Neuer Apfel Zufällig
-    if (Math.random() < 0.02) {
+    if (Math.random() < 0.04) {
       createApple();
     }
 
