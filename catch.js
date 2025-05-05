@@ -7,6 +7,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const startBtn = document.getElementById('startBtn');
   const resetBtn = document.getElementById('resetBtn');
   
+  let lastAppleTime = 0;
+  const appleCooldown = 300; // in Millisekunden
   let score = 0;
   let gameOver = false;
   let gameStarted = false;
@@ -72,7 +74,7 @@ document.addEventListener('DOMContentLoaded', () => {
       x: Math.random() * (canvas.width - 30),
       y: -30,
       size: 30,
-      speed: Math.random() * 3 + 4
+      speed: Math.min(Math.random() * 2 + 3 + Math.floor(score / 100)*0.5, 20)
     };
     
     apples.push(apple);
@@ -109,9 +111,23 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     
     // Neuer Apfel Zufällig
-    if (Math.random() < 0.04) {
-      createApple();
-    }
+    // Apfel-Spawn-Chance steigt mit Score: +0.01 pro 1000 Punkte
+  const baseChance = 0.04;
+  const extraChance = Math.floor(score / 300) * 0.01;
+  const spawnChance = Math.min(baseChance + extraChance, 0.2); // Optional: Begrenzung auf max. 20%
+
+ // Max. Anzahl Äpfel abhängig vom Score: +1 Apfel pro 500 Punkte, max. 10 Äpfel
+const maxApples = Math.min(2 + Math.floor(score / 300), 10);
+
+const now = Date.now();
+if (
+  apples.length < maxApples &&
+  Math.random() < spawnChance &&
+  now - lastAppleTime > appleCooldown
+) {
+  createApple();
+  lastAppleTime = now;
+}
 
     drawGame();
   }
