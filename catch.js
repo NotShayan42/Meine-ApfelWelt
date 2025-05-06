@@ -213,7 +213,7 @@ if (
     gameStarted = false;
     initGame();
     drawGame();
-    startBtn.textContent = 'Start Game';
+    startBtn.textContent = 'Starte Spiel';
   });
   
   
