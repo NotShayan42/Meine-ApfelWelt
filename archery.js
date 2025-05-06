@@ -278,7 +278,7 @@ for (const apple of apples) {
     gameStarted = false;
     initGame();
     drawGame();
-    startBtn.textContent = 'Start Game';
+    startBtn.textContent = 'Starte Spiel';
   });
   
   initGame();
