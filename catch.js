@@ -197,7 +197,7 @@ if (
       if (gameLoop) {
         clearInterval(gameLoop);
         gameLoop = null;
-        startBtn.textContent = 'Resume';
+        startBtn.textContent = 'Weiter';
       } else {
         gameLoop = setInterval(updateGame, 1000/60);
         startBtn.textContent = 'Pause';
