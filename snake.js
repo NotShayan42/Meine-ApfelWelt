@@ -239,7 +239,7 @@ yellowAppleImg.src = 'gelberApfel.png';
       if (gameLoop) {
         clearInterval(gameLoop);
         gameLoop = null;
-        startBtn.textContent = 'Resume';
+        startBtn.textContent = 'Weiter';
       } else {
         gameLoop = setInterval(gameUpdate, 150);
         startBtn.textContent = 'Pause';
