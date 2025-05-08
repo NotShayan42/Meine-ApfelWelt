@@ -145,41 +145,44 @@ yellowAppleImg.src = 'gelberApfel.png';
   }
   
   // Steuerung
-  document.addEventListener('keydown', (e) => {
-    if (!gameStarted) return;
-    
+document.addEventListener('keydown', (e) => {
+  if (!gameStarted) return;
 
-    switch (e.key) {
+  const keysToPrevent = ['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight'];
+  if (keysToPrevent.includes(e.key)) {
+    e.preventDefault(); // Verhindert das Scrollen
+  }
+
+  switch (e.key) {
     case 'ArrowUp':
     case 'w':
       if (velocityY !== 1) {
-      velocityX = 0;
-      velocityY = -1;
-        }
+        velocityX = 0;
+        velocityY = -1;
+      }
       break;
     case 'ArrowDown':
     case 's':
       if (velocityY !== -1) {
         velocityX = 0;
         velocityY = 1;
-        }
+      }
       break;
-
     case 'ArrowLeft':
     case 'a':
       if (velocityX !== 1) {
         velocityX = -1;
         velocityY = 0;
-        }
-    break;
+      }
+      break;
     case 'ArrowRight':
     case 'd':
-        if (velocityX !== -1) {
-          velocityX = 1;
-          velocityY = 0;
-        }
-        break;
-    }
+      if (velocityX !== -1) {
+        velocityX = 1;
+        velocityY = 0;
+      }
+      break;
+  }
   });
   
   // Steuerung Handy/Ipad etc.
