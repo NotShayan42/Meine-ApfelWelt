@@ -4,25 +4,23 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Login</title>
-  <script src="passwort.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/blueimp-md5/2.19.0/js/md5.min.js"></script>
+  <script src="secret.js"></script>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body class="login-body">
-  <!-- Formular mit id="loginForm" -->
-   <div class="login-box">
-  <form id="loginForm">
-    <h1 class="login-title">Bitte Passwort eingeben</h1>
-    <p id="error-msg" class="login-error"></p>
-    <input
-      type="password"
-      id="password"
-      placeholder="Passwort"
-      required
-      class="login-input"
-    />
-    <button type="submit" class="login-button">Login</button>
-  </form>
-  <p id="errorMessage" class="login-error"></p>
-</div>
+  <div class="login-box">
+    <form id="loginForm">
+      <h1 class="login-title">Bitte Passwort eingeben</h1>
+      <p id="error-msg" class="login-error"></p>
+      <input
+        type="password"
+        id="password"
+        placeholder="Passwort"
+        required
+        class="login-input"/>
+      <button type="submit" class="login-button">Login</button>
+    </form>
+  </div>
 </body>
 </html>
