@@ -221,10 +221,10 @@ function computeMultiplier() {
   // Update displays
   function updateDisplays() {
     appleCount.textContent = `${formatNumber(apples)} Äpfel`;
-    const m = computeMultiplier();
     const realAPS = applesPerSecond * getPassiveMultiplier();
     applesPerSecondDisplay.textContent = `${formatNumber(realAPS)} Äpfel pro Sekunde`;
-    clickPowerDisplay.textContent = formatNumber(clickPower * getClickMultiplier());
+    // Show the true click gain per click (including all multipliers/bonuses)
+    clickPowerDisplay.textContent = formatNumber(clickPower * computeMultiplier());
     totalApplesDisplay.textContent = formatNumber(totalApplesCollected);
     prestigePointsDisplay.textContent = formatNumber(prestigePoints);
     prestigePointsSummary.textContent = formatNumber(prestigePoints);
@@ -293,8 +293,8 @@ function createFloatingNumber(x, y, amount) {
   
   // Handle apple click
     appleClicker.addEventListener('click', e => {
-  const m = computeMultiplier();
-  const gain = clickPower * m;
+  // Use the same formula as in the display
+  const gain = clickPower * computeMultiplier();
   apples += gain;
   totalApplesCollected += gain;
   createFloatingNumber(e.pageX, e.pageY, Math.floor(gain));
