@@ -184,6 +184,7 @@ function computeMultiplier() {
       prestigePoints = state.prestigePoints || 0;
       Object.assign(upgradeCounts, state.upgradeCounts);
       
+
     }
   }
 
@@ -221,9 +222,9 @@ function computeMultiplier() {
   function updateDisplays() {
     appleCount.textContent = `${formatNumber(apples)} Äpfel`;
     const m = computeMultiplier();
-    const realAPS = applesPerSecond * m;
+    const realAPS = applesPerSecond * getPassiveMultiplier();
     applesPerSecondDisplay.textContent = `${formatNumber(realAPS)} Äpfel pro Sekunde`;
-    clickPowerDisplay.textContent = formatNumber(clickPower * m);
+    clickPowerDisplay.textContent = formatNumber(clickPower * getClickMultiplier());
     totalApplesDisplay.textContent = formatNumber(totalApplesCollected);
     prestigePointsDisplay.textContent = formatNumber(prestigePoints);
     prestigePointsSummary.textContent = formatNumber(prestigePoints);
