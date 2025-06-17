@@ -15,6 +15,10 @@ greenAppleImg.src = 'gruenerApfel.png';
 const yellowAppleImg = new Image();
 yellowAppleImg.src = 'gelberApfel.png';
 
+const rainbowAppleImg = new Image();
+rainbowAppleImg.src = 'rainbowapple.png';
+
+
   const gridSize = 20;
   const tileCount = canvas.width / gridSize;
   let snake = [];
@@ -34,6 +38,7 @@ yellowAppleImg.src = 'gelberApfel.png';
     const theme = document.documentElement.getAttribute('data-theme') || 'red';
     if (theme === 'green') return greenAppleImg;
     if (theme === 'yellow') return yellowAppleImg;
+    if (theme === 'rainbow') return rainbowAppleImg;
     return redAppleImg;
   }
   
@@ -115,16 +120,28 @@ yellowAppleImg.src = 'gelberApfel.png';
       const size = gridSize * scale;
       const offset = (size - gridSize) / 2;
 
-      function drawApple() {
-        const appleImg = getThemeAppleImage();
-        ctx.drawImage(
-          appleImg,
-          apple.x * gridSize,
-          apple.y * gridSize,
-          gridSize,
-          gridSize
-        );
-      }
+function drawApple() {
+  const appleImg = getThemeAppleImage();
+  const theme = document.documentElement.getAttribute('data-theme') || 'red';
+
+  let drawSize = gridSize;
+  let offset = 0;
+
+  if (theme === 'rainbow') {
+    const scale = 1.6; // z. B. 1.4x größer
+    drawSize = gridSize * scale;
+    offset = (drawSize - gridSize) / 2;
+  }
+
+  ctx.drawImage(
+    appleImg,
+    apple.x * gridSize - offset,
+    apple.y * gridSize - offset,
+    drawSize,
+    drawSize
+  );
+}
+
       drawApple();
 
 
@@ -144,6 +161,7 @@ yellowAppleImg.src = 'gelberApfel.png';
     }
   }
   
+  // Steuerung
   // Steuerung
 document.addEventListener('keydown', (e) => {
   if (!gameStarted) return;
@@ -183,7 +201,7 @@ document.addEventListener('keydown', (e) => {
       }
       break;
   }
-  });
+});
   
   // Steuerung Handy/Ipad etc.
   canvas.addEventListener('touchstart', (e) => {
@@ -242,7 +260,7 @@ document.addEventListener('keydown', (e) => {
       if (gameLoop) {
         clearInterval(gameLoop);
         gameLoop = null;
-        startBtn.textContent = 'Weiter';
+        startBtn.textContent = 'Resume';
       } else {
         gameLoop = setInterval(gameUpdate, 150);
         startBtn.textContent = 'Pause';

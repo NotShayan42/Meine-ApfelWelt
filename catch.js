@@ -47,6 +47,9 @@ document.addEventListener('DOMContentLoaded', () => {
   
   const yellowAppleImg = new Image();
   yellowAppleImg.src = 'gelberApfel.png';
+
+  const rainbowAppleImg = new Image ();
+  rainbowAppleImg.src = 'rainbowapple.png';
   
   
   // Apfel je nach Theme
@@ -54,6 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const theme = document.documentElement.getAttribute('data-theme') || 'red';
     if (theme === 'green') return greenAppleImg;
     if (theme === 'yellow') return yellowAppleImg;
+    if (theme === 'rainbow') return rainbowAppleImg;
     return redAppleImg;
   }
   
@@ -138,10 +142,18 @@ if (
     ctx.drawImage(basketImg, basket.x, basket.y, basket.width, basket.height);
     
     // Zeichne Äpfel
-    const themedAppleImg = getThemeAppleImage();
-    for (const apple of apples) {
+   // Zeichne Äpfel
+  const themedAppleImg = getThemeAppleImage();
+  for (const apple of apples) {
+    // Prüfe, ob es der rainbow apple ist
+    if (themedAppleImg === rainbowAppleImg) {
+      const biggerSize = apple.size * 1.4; // z.B. 50% größer
+      ctx.drawImage(themedAppleImg, apple.x - (biggerSize - apple.size) / 2, apple.y, biggerSize, biggerSize);
+    } else {
       ctx.drawImage(themedAppleImg, apple.x, apple.y, apple.size, apple.size);
     }
+  }
+
     
     
     // Zeichen Leben
@@ -197,7 +209,7 @@ if (
       if (gameLoop) {
         clearInterval(gameLoop);
         gameLoop = null;
-        startBtn.textContent = 'Weiter';
+        startBtn.textContent = 'Resume';
       } else {
         gameLoop = setInterval(updateGame, 1000/60);
         startBtn.textContent = 'Pause';
@@ -213,7 +225,7 @@ if (
     gameStarted = false;
     initGame();
     drawGame();
-    startBtn.textContent = 'Starte Spiel';
+    startBtn.textContent = 'Start Game';
   });
   
   

@@ -32,6 +32,199 @@
   --accent-color: #d35400;
 }
 
+/* Rainbow Theme */
+[data-theme="rainbow"] {
+  --primary-color: #ff0000;
+  --secondary-color: #00ff00;
+  --dark-color: #2c3e50;
+  --light-color: #ffffff;
+  --accent-color: #0000ff;
+}
+
+[data-theme="rainbow"] .upgrade-cost{
+    background: linear-gradient(
+    to right,
+    rgb(255, 0, 0),
+    rgb(255, 145, 0),
+    rgb(255, 191, 0),
+    rgb(255, 255, 0),
+    rgb(217, 255, 0),
+    rgb(0, 255, 0),
+    rgb(0, 255, 255),
+    rgb(0, 255, 255),
+    rgb(0, 110, 255),
+    rgb(0, 47, 255),
+    rgb(128, 0, 255),
+    rgb(247, 0, 255),
+    rgb(255, 0, 115)
+  );
+  background-size: 200% auto;
+  animation: rainbow-bg 5s linear infinite;
+  color: white;
+  padding: 0.3rem 0.6rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+}
+[data-theme="rainbow"] .upgrade-icon{
+  background: linear-gradient(
+    to right,
+    rgb(255, 0, 0),
+    rgb(255, 145, 0),
+    rgb(255, 191, 0),
+    rgb(255, 255, 0),
+    rgb(217, 255, 0),
+    rgb(0, 255, 0),
+    rgb(0, 255, 255),
+    rgb(0, 255, 255),
+    rgb(0, 110, 255),
+    rgb(0, 47, 255),
+    rgb(128, 0, 255),
+    rgb(247, 0, 255),
+    rgb(255, 0, 115)
+  );
+  background-size: 200% auto;
+  animation: rainbow-bg 5s linear infinite;
+  color: white;
+  padding: 0.3rem 0.6rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+}
+[data-theme="rainbow"] .click-effect {
+  background: linear-gradient(
+    to right,
+    rgb(255, 0, 0),
+    rgb(255, 145, 0),
+    rgb(255, 191, 0),
+    rgb(255, 255, 0),
+    rgb(217, 255, 0),
+    rgb(0, 255, 0),
+    rgb(0, 255, 255),
+    rgb(0, 255, 255),
+    rgb(0, 110, 255),
+    rgb(0, 47, 255),
+    rgb(128, 0, 255),
+    rgb(247, 0, 255),
+    rgb(255, 0, 115)
+  );
+  background-size: 200% auto;
+  animation: float-up 1s ease-out forwards, rainbow 1.5s linear infinite;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+[data-theme="rainbow"] .apple-count,
+[data-theme="rainbow"] .apples-per-second,
+[data-theme="rainbow"] .logo,
+[data-theme="rainbow"] h1,
+[data-theme="rainbow"] h2,
+[data-theme="rainbow"] h3,
+[data-theme="rainbow"] .nav-links a[aria-current='page'],
+[data-theme="rainbow"] .game-btn-control,
+[data-theme="rainbow"] .game-btn {
+  background: linear-gradient(
+    to right,
+    rgb(255, 0, 0),
+    rgb(255, 145, 0),
+    rgb(255, 191, 0),
+    rgb(255, 255, 0),
+    rgb(217, 255, 0),
+    rgb(0, 255, 0),
+    rgb(0, 255, 255),
+    rgb(0, 255, 255),
+    rgb(0, 110, 255),
+    rgb(0, 47, 255),
+    rgb(128, 0, 255),
+    rgb(247, 0, 255),
+    rgb(255, 0, 115)
+  );
+  background-size: 200% auto;
+  animation: rainbow 5s linear infinite;
+  color: white;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+[data-theme="rainbow"] .nav-links a[aria-current='page'],
+[data-theme="rainbow"] .game-btn-control,
+[data-theme="rainbow"] .game-btn {
+  background: linear-gradient(
+    to right,
+    rgb(255, 0, 0),
+    rgb(255, 145, 0),
+    rgb(255, 191, 0),
+    rgb(255, 255, 0),
+    rgb(217, 255, 0),
+    rgb(0, 255, 0),
+    rgb(0, 255, 255),
+    rgb(0, 255, 255),
+    rgb(0, 110, 255),
+    rgb(0, 47, 255),
+    rgb(128, 0, 255),
+    rgb(247, 0, 255),
+    rgb(255, 0, 115)
+  );
+  background-size: 200% auto;
+  animation: rainbow-bg 5s linear infinite;
+  -webkit-background-clip: initial;
+  background-clip: initial;
+  -webkit-text-fill-color: initial;
+}
+
+[data-theme="rainbow"] .nav-links a:hover {
+  background: linear-gradient(
+    to right,
+    rgb(255, 0, 0),
+    rgb(255, 145, 0),
+    rgb(255, 191, 0),
+    rgb(255, 255, 0),
+    rgb(217, 255, 0),
+    rgb(0, 255, 0),
+    rgb(0, 255, 255),
+    rgb(0, 255, 255),
+    rgb(0, 110, 255),
+    rgb(0, 47, 255),
+    rgb(128, 0, 255),
+    rgb(247, 0, 255),
+    rgb(255, 0, 115)
+  );
+  background-size: 200% auto;
+  animation: rainbow-bg 5s linear infinite;
+  color: white;
+}
+
+[data-theme="rainbow"] .game-canvas {
+  border: 2x solid transparent;
+  border-image: linear-gradient(
+    45deg,
+    rgb(255, 0, 0),
+    rgb(255, 145, 0),
+    rgb(255, 191, 0),
+    rgb(255, 255, 0),
+    rgb(217, 255, 0),
+    rgb(0, 255, 0),
+    rgb(0, 255, 255),
+    rgb(0, 255, 255),
+    rgb(0, 110, 255),
+    rgb(0, 47, 255),
+    rgb(128, 0, 255),
+    rgb(247, 0, 255),
+    rgb(255, 0, 115)
+  ) 1;
+}
+
+
+@keyframes rainbow {
+  0% { background-position: 0% center; }
+  100% { background-position: 200% center; }
+}
+
+@keyframes rainbow-bg {
+  0% { background-position: 0% center; }
+  100% { background-position: 200% center; }
+}
+
 html, body {
   margin: 0;
   padding: 0;
@@ -250,6 +443,52 @@ h2 {
   background-color: var(--accent-color);
   transform: scale(1.05);
 }
+.powerup-menu {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin: 1rem 0;
+}
+
+.powerup-btn {
+  padding: 0.5rem 1rem;
+  background: linear-gradient(135deg, #3498db, #2980b9);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.powerup-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.powerup-btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.instructions ul {
+  list-style: none;
+  padding: 0;
+  margin: 0.5rem 0;
+}
+
+.instructions li {
+  margin: 0.25rem 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.instructions h4 {
+  margin: 1rem 0 0.5rem;
+  color: #2c3e50;
+}
 
 footer {
   text-align: center;
@@ -305,6 +544,50 @@ footer {
   background-color: #f1c40f;
 }
 
+.theme-btn.rainbow {
+  background: linear-gradient(
+    45deg,
+     rgb(255, 0, 0),
+    rgb(255, 145, 0),
+    rgb(255, 191, 0),
+    rgb(255, 255, 0),
+    rgb(217, 255, 0),
+    rgb(0, 255, 0),
+    rgb(0, 255, 255),
+    rgb(0, 255, 255),
+    rgb(0, 110, 255),
+    rgb(0, 47, 255),
+    rgb(128, 0, 255),
+    rgb(247, 0, 255),
+    rgb(255, 0, 115)
+  );
+  animation: rainbow-rotate 3s linear infinite;
+}
+
+@keyframes rainbow-rotate {
+  0% {
+    filter: hue-rotate(0deg) saturate(1.5) brightness(1);
+    background-position: 0% center;
+  }
+  25% {
+    filter: hue-rotate(60deg) saturate(1.5) brightness(1); /* Complete Yellow phase */
+    background-position: 50% center;
+  }
+  50% {
+    filter: hue-rotate(180deg) saturate(2) brightness(1.2);
+    background-position: 100% center;
+  }
+  100% {
+    filter: hue-rotate(360deg) saturate(1.5) brightness(1);
+    background-position: 200% center;
+  }
+}
+
+[data-theme="rainbow"] .falling-apple {
+  filter: none !important;
+}
+
+
 /* Apple Animation */
 .apple-container {
   position: fixed;
@@ -339,7 +622,12 @@ footer {
   width: 2.5rem;
   height: 2.5rem;
   }
-  
+
+/* Apply rainbow animation for rainbow theme apples */
+[data-theme="rainbow"] .falling-apple {
+  content: url('rainbowapple.png');
+  animation: fall 3s linear forwards, rainbow-rotate 3s linear infinite;
+}
 
 @keyframes fall {
   0% {
@@ -435,6 +723,12 @@ footer {
   border: 2px solid var(--primary-color);
 }
 
+.snake-canvas {
+  width: 400px;
+  height: 400px;
+  image-rendering: auto;
+}
+
 .game-controls {
   display: flex;
   justify-content: center;
@@ -461,6 +755,371 @@ footer {
   font-size: 1.5rem;
   margin: 1rem 0;
 }
+
+.shop-section {
+  padding: 1.5rem;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  max-width: 900px;
+   flex: 1 1 50%;
+  max-width: 600px;
+}
+
+
+
+
+.clicker-container {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  padding: 2rem;
+  box-sizing: border-box;
+  max-width: 1200px; /* Begrenzung für große Bildschirme */
+  margin: 0 auto;
+  align-items: stretch;
+}
+
+.game-section,
+.shop-section {
+  flex: 1 1 50%;
+  align-self: stretch;   /* Ensures both stretch to container height */
+  /* Remove or adjust max-width if needed for your layout */
+}
+
+
+.game-section {
+  max-width: 900px;  /* gleiche Breite wie Shop */
+  margin: 0 auto;    /* zentriert */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+   flex: 1 1 50%;
+}
+
+
+.apple-clicker {
+  width: 500px;
+  height: 500px;
+  object-fit: contain;      /* stellt sicher, dass das Bild komplett sichtbar bleibt */
+  display: block;           /* entfernt, falls es zufällig inline ist */
+  margin: 0 auto;   
+  font-size: 8rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  user-select: none;
+  filter: drop-shadow(0 4px 8px rgba(0,0,0,0.2));
+}
+
+.apple-clicker:hover {
+  transform: scale(1.05);
+  filter: drop-shadow(0 6px 12px rgba(0,0,0,0.3));
+}
+
+.apple-clicker:active {
+  transform: scale(0.95);
+}
+
+.stats {
+  background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+  width: 100%;
+}
+
+.stats div {
+  display: flex;
+  justify-content: space-between;
+  margin: 0.5rem 0;
+  color: var(--dark-color);
+}
+
+.upgrades {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: center;
+}
+
+
+.upgrades h2 {
+  flex-basis: 100%;    /* Überschrift nimmt die ganze Breite ein */
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: var(--primary-color);
+  font-size: 1.8rem;
+}
+
+.upgrade-card {
+  background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+  border-radius: 8px;
+  padding: 1rem;
+  margin: 1rem 0;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+  flex: 1 1 250px; /* Each card takes at least 250px, grows as needed */
+  max-width: 350px; /* Prevents cards from getting too wide */
+}
+
+.upgrade-card:hover:not(.disabled) {
+  transform: translateY(-2px);
+  border-color: var(--primary-color);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.upgrade-card.disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.upgrade-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.upgrade-title {
+  font-weight: bold;
+  color: var(--dark-color);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 1rem;
+}
+
+.upgrade-icon {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--primary-color);
+  color: white;
+  border-radius: 50%;
+  font-size: 0.8rem;
+}
+
+.upgrade-cost {
+  background: var(--primary-color);
+  color: white;
+  padding: 0.3rem 0.6rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+}
+
+.upgrade-description {
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 0.5rem;
+}
+
+.upgrade-count {
+  font-size: 0.8rem;
+  color: var(--accent-color);
+}
+
+.apple-count {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: var(--primary-color);
+  text-align: center;
+  margin: 1rem 0;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+}
+
+.apples-per-second {
+  text-align: center;
+  color: var(--accent-color);
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.click-effect {
+  position: absolute;
+  pointer-events: none;
+  animation: float-up 1s ease-out forwards;
+  font-weight: bold;
+  color: var(--primary-color);
+  font-size: 1.2rem;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+}
+
+.apple-clicker-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+  .clicker-container.prestige-expanded {
+        margin-left: 240px; /* Account for expanded prestige panel */
+      }
+
+.prestige-section {
+  background: linear-gradient(135deg, #ffd700, #ffed4e);
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(255, 215, 0, 0.3);
+  border: 2px solid #ffd700;
+  overflow: hidden;
+  margin-top: 2rem;
+  width: 100%;         /* Take full width of .game-section */
+  max-width: 100%;     /* Remove fixed max-width */
+  min-width: 0;        /* Remove fixed min-width */
+  transition:
+    max-height 0.5s cubic-bezier(.4,2,.6,1),
+    background 0.3s,
+    box-shadow 0.3s,
+    border 0.3s;
+}
+
+.prestige-header {
+  padding: 1rem 1.5rem;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(135deg, #ffd700, #ffed4e);
+  transition: all 0.3s ease;
+}
+
+.prestige-header:hover {
+  background: linear-gradient(135deg, #ffed4e, #ffd700);
+}
+
+.prestige-header h2 {
+  margin: 0;
+  color: #b8860b;
+  font-size: 1.5rem;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+}
+
+.prestige-toggle {
+  color: #b8860b;
+  font-size: 1.2rem;
+  transition: transform 0.3s ease;
+}
+
+.prestige-toggle.expanded {
+  transform: rotate(180deg);
+}
+
+.prestige-content {
+  padding: 0 1.5rem 1.5rem;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease, padding 0.3s ease;
+}
+
+.prestige-content.expanded {
+  max-height: 700px;
+  padding: 1.5rem;
+}
+
+.prestige-summary {
+  background: rgba(255, 255, 255, 0.9);
+  padding: 0.8rem;
+  border-radius: 6px;
+  margin-bottom: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: bold;
+  color: #b8860b;
+}
+
+.prestige-info {
+  background: rgba(255, 255, 255, 0.8);
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+.prestige-info div {
+  display: flex;
+  justify-content: space-between;
+  margin: 0.5rem 0;
+  color: #b8860b;
+  font-weight: bold;
+}
+
+.prestige-btn {
+  width: 100%;
+  padding: 1rem;
+  background: linear-gradient(135deg, #ffd700, #ffed4e);
+  color: #b8860b;
+  border: 2px solid #b8860b;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+}
+
+.prestige-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(255, 215, 0, 0.4);
+  background: linear-gradient(135deg, #ffed4e, #ffd700);
+}
+
+.prestige-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.prestige-warning {
+  background: rgba(255, 0, 0, 0.1);
+  border: 1px solid rgba(255, 0, 0, 0.3);
+  padding: 0.8rem;
+  border-radius: 6px;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+  color: #d32f2f;
+  text-align: center;
+}
+
+.prestige-multipliers {
+  background: rgba(255, 255, 255, 0.8);
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+.prestige-multipliers h4 {
+  color: #b8860b;
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+
+.multiplier-item {
+  display: flex;
+  justify-content: space-between;
+  margin: 0.3rem 0;
+  font-size: 0.9rem;
+  color: #667;
+}
+
+@keyframes float-up {
+  0% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-25px) scale(1.2);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-50px) scale(1);
+  }
+}
+      
+
 
 /* Facts Page */
 .facts-container {
@@ -645,9 +1304,39 @@ footer {
     width: 100%;
     height: auto;
   }
-  
+  .clicker-container {
+    flex-direction: column;
+    padding: 1rem;
+    gap: 1rem;
+  }
 
+  .game-section,
+  .shop-section {
+    max-width: 100%;
+    flex: none;
+    margin: 0 auto;
+    padding: 1rem;
+  }
 
+  .apple-clicker {
+    width: 250px;
+    height: 250px;
+  }
+
+  .upgrade-card {
+    flex: 1 1 100%;
+    max-width: 100%;
+    margin: 0.5rem 0;
+  }
+
+  .upgrades {
+    gap: 0.75rem;
+  }
+
+  .score {
+    font-size: 1.2rem;
+    margin: 0.5rem 0;
+  }
 }
 
 /* Tablet-specific styles */

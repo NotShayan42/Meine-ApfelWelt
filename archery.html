@@ -21,6 +21,7 @@
         <a href="archery.html"aria-current="page">Äpfelschießen</a>
         <a href="facts.html">Apfel Fakten</a>
         <a href="catch.html">Äpfelfangen</a>
+        <a href="appleclicker.html">Apfelclicker</a>
       </div>
     </nav>
     
@@ -36,6 +37,12 @@
       
       <div class="game-container">
         <div class="score">Score: <span id="score">0</span></div>
+        <div class="powerup-menu">
+          <button class="powerup-btn" data-powerup="bigArrow">Größerer Pfeil (10s)</button>
+          <button class="powerup-btn" data-powerup="autoShoot">Autofire (10s)</button>
+          <button class="powerup-btn" data-powerup="explosive">Explosive Pfeile (10s)</button>
+          <button class="powerup-btn" data-powerup="multiShot">Multi Shot (10s)</button>
+        </div>
         <canvas id="gameCanvas" class="game-canvas" width="600" height="400"></canvas>
         <div class="game-controls">
           <button id="startBtn" class="game-btn-control">Starte Spiel</button>
@@ -44,6 +51,12 @@
         <div class="instructions">
           <h3>Wie man spielt:</h3>
           <p>Klicke oder drücke auf dem Feld um Pfeile zu schießen. Treffe die Äpfel um Punkte zu erzielen. Du hast nur 60 Sekunden um den höchsten Score zu erreichen!</p>
+          <ul>
+            <li><img id="themeApple" width="20" height="20" /> Theme Apfel: 10 Punkte (Normal)</li>
+            <li><img src="camoapple.png" width="20" height="20" /> Pink Camoflager Apfel: 20 Punkte (Klein & Schnell) </li>
+            <li><img src="Galaxyappel.png" width="20" height="20" /> Galaxy Apfel: 50 Punkte (Spezial)</li>
+            
+          </ul>
         </div>
       </div>
     </main>

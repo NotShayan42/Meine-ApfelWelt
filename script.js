@@ -32,6 +32,15 @@ window.addEventListener('load', () => {
 
 let appleFallInterval;
 
+// 🔁 Direkt ganz oben im Skript (nach den ersten Kommentaren)
+const imageMap = {
+  red: 'Apfel.png',
+  green: 'GruenerApfel2.png',
+  yellow: 'GelberApfel2.png',
+  rainbow: 'rainbowapple.png'
+};
+
+
 // Theme switcher
 window.setTheme = function(theme) {
   document.documentElement.setAttribute('data-theme', theme);
@@ -42,20 +51,31 @@ window.setTheme = function(theme) {
   if (activeBtn) {
     activeBtn.style.transform = 'scale(1.1)';
   }
+  
   // Bild aktualisieren
   const appleImage = document.querySelector('.hero img');
   if (appleImage) {
     const imageMap = {
       red: 'Apfel.png',
       green: 'GruenerApfel2.png',
-      yellow: 'GelberApfel2.png'
+      yellow: 'GelberApfel2.png',
+      rainbow: 'rainbowapple.png'
     };
     appleImage.src = imageMap[theme] || imageMap.red;
   }
 
+  
+
   // Äpfel regnen lassen
   const rainEnabled = localStorage.getItem('apple-rain') === 'true';
   toggleAppleRain(rainEnabled);
+
+  // Kleines Apfelbild in der Liste aktualisieren
+const themeAppleImg = document.getElementById('themeApple');
+if (themeAppleImg) {
+  themeAppleImg.src = imageMap[currentTheme];
+}
+
 };
 
 // Aktuelles Theme-Emoji
@@ -134,6 +154,7 @@ document.addEventListener('DOMContentLoaded', () => {
     <button class="theme-btn red" onclick="setTheme('red')" title="Roter Apfel"></button>
     <button class="theme-btn green" onclick="setTheme('green')" title="Grüner Apfel"></button>
     <button class="theme-btn yellow" onclick="setTheme('yellow')" title="Gelber Apfel"></button>
+    <button class="theme-btn rainbow" onclick="setTheme('rainbow')" title="Regenbogen Theme"></button>
   `;
 
   // Regen-Toggle
@@ -181,6 +202,17 @@ document.addEventListener('DOMContentLoaded', () => {
   document.addEventListener('click', handleAppleTouch);
   document.addEventListener('touchstart', handleAppleTouch);
   
+
+  const currentTheme = localStorage.getItem('apple-theme') || 'red';
+const themeAppleImg = document.getElementById('themeApple');
+if (themeAppleImg) {
+  themeAppleImg.src = {
+    red: 'Apfel.png',
+    green: 'GruenerApfel2.png',
+    yellow: 'GelberApfel2.png',
+    rainbow: 'rainbowapple.png'
+  }[currentTheme];
+}
 
 
   initTheme();
