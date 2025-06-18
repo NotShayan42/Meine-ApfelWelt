@@ -43,7 +43,7 @@ function computeMultiplier() {
   let baseMultiplier = Object.keys(upgradeCounts).reduce((m, type) => {
     const count = upgradeCounts[type];
     const bonus = upgrades[type].bonusPerBuy || 0;
-    return m * Math.pow(1 + bonus * count, 0.6); // sublineares Wachstum
+    return m * Math.pow(1 + bonus * count, 0.8); // sublineares Wachstum
   }, 1);
 
   baseMultiplier *= getClickMultiplier(); // für Klickkraft

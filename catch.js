@@ -6,6 +6,56 @@ document.addEventListener('DOMContentLoaded', () => {
   const scoreElement = document.getElementById('score');
   const startBtn = document.getElementById('startBtn');
   const resetBtn = document.getElementById('resetBtn');
+  // FIX: Use the correct container ID from HTML
+  const gameContainer = document.getElementById('gameContainerSnake');
+  const fullscreenBtn = document.getElementById('fullscreenBtn');
+  const exitFullscreenBtn = document.getElementById('exitFullscreenBtn');
+
+   // Fullscreen functionality
+  function enterFullscreen() {
+    gameContainer.classList.add('fullscreen');
+    fullscreenBtn.style.display = 'none';
+    exitFullscreenBtn.style.display = 'block';
+    
+    // Resize canvas for fullscreen
+    const maxWidth = Math.min(window.innerWidth * 0.9, 800);
+    const maxHeight = Math.min(window.innerHeight * 0.7, 600);
+    canvas.width = maxWidth;
+    canvas.height = maxHeight;
+    canvas.style.width = maxWidth + 'px';
+    canvas.style.height = maxHeight + 'px';
+    
+    // Update basket position for new canvas size
+    basket.x = Math.min(basket.x, canvas.width - basket.width);
+    basket.y = canvas.height - 60;
+  }
+  
+  function exitFullscreen() {
+    gameContainer.classList.remove('fullscreen');
+    fullscreenBtn.style.display = 'block';
+    exitFullscreenBtn.style.display = 'none';
+    
+    // Reset canvas size
+    canvas.width = 600;
+    canvas.height = 400;
+    canvas.style.width = '';
+    canvas.style.height = '';
+    
+    // Reset basket position
+    basket.x = Math.min(basket.x, canvas.width - basket.width);
+    basket.y = canvas.height - 60;
+  }
+  
+  fullscreenBtn.addEventListener('click', enterFullscreen);
+  exitFullscreenBtn.addEventListener('click', exitFullscreen);
+  
+  // Handle escape key to exit fullscreen
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && gameContainer.classList.contains('fullscreen')) {
+      exitFullscreen();
+    }
+  });
+  
   
   let lastAppleTime = 0;
   const appleCooldown = 300; // in Millisekunden
@@ -15,13 +65,14 @@ document.addEventListener('DOMContentLoaded', () => {
   let gameLoop;
   let lives = 3;
   
-  function resizeCanvas() {
-    const container = canvas.parentElement;
-    const maxWidth = Math.min(600, container.clientWidth - 20);
-    canvas.style.width = maxWidth + 'px';
-    canvas.style.height = (maxWidth * 2/3) + 'px';
+ function resizeCanvas() {
+    if (!gameContainer.classList.contains('fullscreen')) {
+      const container = canvas.parentElement;
+      const maxWidth = Math.min(600, container.clientWidth - 20);
+      canvas.style.width = maxWidth + 'px';
+      canvas.style.height = (maxWidth * 2/3) + 'px';
+    }
   }
-
   resizeCanvas();
   window.addEventListener('resize', resizeCanvas);
   

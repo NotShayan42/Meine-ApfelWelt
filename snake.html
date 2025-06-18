@@ -35,7 +35,15 @@
         <p>Kontrolliere die Schlange und verschlinge soviele Äpfel wie du nur kannst!</p>
       </div>
       
-      <div class="game-container">
+      <div class="game-container" id="gameContainer">
+         <div class="fullscreen-controls">
+          <button id="fullscreenBtn" class="fullscreen-btn" title="Enter Fullscreen">
+            <i class="fas fa-expand"></i>
+          </button>
+          <button id="exitFullscreenBtn" class="fullscreen-btn exit-fullscreen" title="Exit Fullscreen" style="display: none;">
+            <i class="fas fa-compress"></i>
+          </button>
+        </div>
         <div class="score">Score: <span id="score">0</span></div>
         <div class="canvas-wrapper">
         <canvas id="gameCanvas" class="game-canvas snake-canvas" width="400" height="400"></canvas>

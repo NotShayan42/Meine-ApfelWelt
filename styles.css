@@ -112,6 +112,47 @@
   background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+[data-theme="rainbow"] #fullscreenBtn {
+  background-image: linear-gradient(
+    to right,
+    rgb(255, 0, 0),
+    rgb(255, 145, 0),
+    rgb(255, 191, 0),
+    rgb(255, 255, 0),
+    rgb(217, 255, 0),
+    rgb(0, 255, 0),
+    rgb(0, 255, 255),
+    rgb(0, 110, 255),
+    rgb(0, 47, 255),
+    rgb(128, 0, 255),
+    rgb(247, 0, 255),
+    rgb(255, 0, 115)
+  );
+  background-size: 200% auto;
+  animation: rainbow-bg 5s linear infinite;
+  color: white;
+}
+
+[data-theme="rainbow"] #exitFullscreenBtn {
+  background-image: linear-gradient(
+    to right,
+    rgb(255, 0, 0),
+    rgb(255, 145, 0),
+    rgb(255, 191, 0),
+    rgb(255, 255, 0),
+    rgb(217, 255, 0),
+    rgb(0, 255, 0),
+    rgb(0, 255, 255),
+    rgb(0, 110, 255),
+    rgb(0, 47, 255),
+    rgb(128, 0, 255),
+    rgb(247, 0, 255),
+    rgb(255, 0, 115)
+  );
+  background-size: 200% auto;
+  animation: rainbow-bg 5s linear infinite;
+  color: white;
+}
 
 [data-theme="rainbow"] .apple-count,
 [data-theme="rainbow"] .apples-per-second,
@@ -659,6 +700,32 @@ footer {
   border: 2px solid var(--primary-color);
 }
 
+.snake-canvas {
+  width: 400px;
+  height: 400px;
+  display: block;
+  margin: 0 auto;
+  border: 2px solid var(--primary-color);
+  background: #f5f5f5;
+  /* Depixelate and upscale quality */
+  image-rendering: auto;
+  image-rendering: smooth;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: optimizeQuality;
+  image-rendering: high-quality;
+  image-rendering: -webkit-smooth;
+  /* For Firefox */
+  image-rendering: crisp-edges;
+  /* For Safari */
+  image-rendering: -webkit-crisp-edges;
+  /* For Chrome (future) */
+  image-rendering: pixelated; /* fallback, but will not be used due to above */
+  /* Font smoothing for canvas text */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
 .game-controls {
   display: flex;
   justify-content: center;
@@ -727,6 +794,16 @@ footer {
   width: 400px;
   height: 400px;
   image-rendering: auto;
+  image-rendering: smooth;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: optimizeQuality;
+  image-rendering: high-quality;
+  image-rendering: -webkit-smooth;
+  /* Remove pixelated/nearest-neighbor if present elsewhere */
+  display: block;
+  margin: 0 auto;
+  border: 2px solid var(--primary-color);
+  background: #f5f5f5;
 }
 
 .game-controls {
@@ -788,6 +865,7 @@ footer {
 }
 
 
+
 .game-section {
   max-width: 900px;  /* gleiche Breite wie Shop */
   margin: 0 auto;    /* zentriert */
@@ -799,6 +877,133 @@ footer {
   border-radius: 12px;
   box-shadow: 0 4px 20px rgba(0,0,0,0.1);
    flex: 1 1 50%;
+}
+
+.fullscreen-controls {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  z-index: 1100;
+  display: flex;
+  width: auto;
+  margin-bottom: 0.5rem;
+}
+
+.fullscreen-btn {
+  background: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.fullscreen-btn:hover {
+  background: var(--accent-color);
+  transform: scale(1.1);
+}
+
+.game-container {
+  position: relative;
+}
+
+.game-container.fullscreen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  max-width: none;
+  margin: 0;
+  border-radius: 0;
+  z-index: 1000;
+  background: var(--light-color);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  /* Depixelate font */
+  font-family: 'Segoe UI', 'Arial', 'Helvetica Neue', Verdana, Geneva, sans-serif;
+  font-size: 1rem;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+.game-container.fullscreen .game-canvas {
+  width: 52vw !important;
+  height: 85vh !important;
+  display: block;
+  margin: 0 auto;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+  border-width: 4px;
+  border-radius: 12px;
+  background: #f5f5f5;
+  /* Depixelate images as much as possible */
+  image-rendering: auto;
+  image-rendering: smooth;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: optimizeQuality;
+  image-rendering: high-quality;
+  image-rendering: -webkit-smooth;
+  /* Depixelate font */
+  font-family: 'Segoe UI', 'Arial', 'Helvetica Neue', Verdana, Geneva, sans-serif;
+  font-size: 1.25rem;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  /* Remove pixelated/nearest-neighbor if present elsewhere */
+}
+
+.game-container.fullscreen .snake-canvas {
+  width: auto !important;
+  height: 80vh !important;
+}
+
+.game-container.fullscreen .fullscreen-controls {
+  position: fixed;
+  top: 2rem;
+  right: 2rem;
+}
+
+.game-container.fullscreen .archery-canvas {
+  width: 47vw !important;
+  height: 85vh !important;
+}
+
+#gameContainer {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+#gameContainer.fullscreen {
+  padding: 0;
+  margin: 0;
+  max-width: 100vw;
+  max-height: 100vh;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#gameContainer.fullscreen canvas.archery-canvas {
+  width: 90vw;
+  height: auto;
+  max-height: 90vh;
+  background: #f5f5f5;
 }
 
 
@@ -1141,7 +1346,10 @@ footer {
 }
 
 /* Responsive Design */
-@media (max-width: 899px) {
+
+
+
+@media (max-width: 1400px) {
   nav {
     flex-direction: column;
     padding: 1rem;
@@ -1164,7 +1372,35 @@ footer {
   .nav-controls {
     margin: 1rem 0;
   }
+
+  .game-container.fullscreen .catch-canvas {
+  width: 69vw !important;
+  height: auto !important;
 }
+
+.game-container.fullscreen .snake-canvas {
+  width: 75vw !important;
+  height: auto !important;
+}
+
+.game-container.fullscreen .archery-canvas {
+  width: 85vw !important;
+  height: auto !important;
+}
+
+
+}
+
+@media (min-width: 1200px) and (max-width: 1300px) {
+.game-container.fullscreen .catch-canvas {
+    width: 72vw !important;
+    height: auto !important;
+}
+}
+
+
+
+
 
 .rain-toggle {
   width: 30px;
@@ -1337,64 +1573,64 @@ footer {
     font-size: 1.2rem;
     margin: 0.5rem 0;
   }
-}
 
-/* Tablet-specific styles */
-@media (min-width: 900px) and (max-width: 1400px) {
-  .nav-links a {
-    padding: 0.5rem;
-  }
-  
-  .nav-controls {
-    position: static;           /* Kein absolute mehr */
-    margin: 0.5rem auto 1rem;   /* Etwas Abstand oben/unten */
-    display: flex;
-    justify-content: center;
-    gap: 0.8rem;
+  .game-container.fullscreen .catch-canvas {
+    width: 90vw !important;
   }
 
-  .content {
-    grid-template-columns: repeat(2, 1fr);
+  .fullscreen-btn {
+    width: 35px;
+    height: 35px;
+    font-size: 0.9rem;
   }
   
-  .facts-container {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  
-  .game-container {
+  .game-container.fullscreen {
     padding: 1rem;
   }
   
-  .game-canvas {
-    width: 100%;
-    height: auto;
-    max-width: 600px;
+  .game-container.fullscreen .fullscreen-controls {
+    top: 1rem;
+    right: 1rem;
   }
-  .login-box {
-    padding: 2em;
-  }
-
-  .login-title {
-    font-size: 1.6em;
-  }
-  nav {
-    width: 100vw;      /* volle Viewport-Breite */
-    left: 0;           /* bei fixed/absolute nötig */
-    padding: 1rem;     /* optional, hier nur noch 1rem statt 2rem */
-    box-sizing: border-box;
+  .game-container.fullscreen .snake-canvas{
+    height: 43vh !important;
+    width: auto !important;
   }
 
-  
-  
+  #gameContainer.fullscreen canvas.archery-canvas {
+  width: 47vw !important;
+  height: 40vh !important;
+}
 }
 
-/* Touch-specific styles */
+@media (min-width: 1090px) and (max-width: 1400px) {
+.game-container.fullscreen .snake-canvas {
+    width: 59vw !important;
+    height: auto !important;
+}
+}
+
+@media (min-width: 1090px) and (max-width: 1400px) {
+.game-container.fullscreen .archery-canvas {
+  width: 69vw !important;
+  height: 85vh !important;
+}
+}
+
+@media (min-width: 1401px) and (max-width: 1600px) {
+.game-container.fullscreen .archery-canvas {
+  width: 65vw !important;
+  height: 85vh !important;
+}
+}
+
 @media (hover: none) {
   .game-btn-control,
   .game-btn,
   nav a,
   .theme-btn,
-  .rain-toggle {
+  .rain-toggle,
+  .fullscreen-btn {
     -webkit-tap-highlight-color: transparent;
   }
   
@@ -1402,8 +1638,8 @@ footer {
   .game-btn:active,
   nav a:active,
   .theme-btn:active,
-  .rain-toggle:active {
+  .rain-toggle:active,
+  .fullscreen-btn:active {
     transform: scale(0.95);
   }
-  
 }

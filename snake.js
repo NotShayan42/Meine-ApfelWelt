@@ -19,8 +19,10 @@ const rainbowAppleImg = new Image();
 rainbowAppleImg.src = 'rainbowapple.png';
 
 
-  const gridSize = 20;
-  const tileCount = canvas.width / gridSize;
+
+  const fixedTileCount = 20; // 20x20 Felder
+  let gridSize = canvas.width / fixedTileCount;
+  const tileCount = fixedTileCount; // nie verändern!
   let snake = [];
   let apple = { x: 0, y: 0 };
   let velocityX = 0;
@@ -286,4 +288,70 @@ document.addEventListener('keydown', (e) => {
   // Damit man nicht scrollt wenn man den Canvas berührt
   canvas.addEventListener('touchstart', (e) => e.preventDefault(), { passive: false });
   canvas.addEventListener('touchmove', (e) => e.preventDefault(), { passive: false });
+  
+  // --- Fullscreen Functionality (Optimized) ---
+  const gameContainer = document.getElementById('gameContainer');
+  const fullscreenBtn = document.getElementById('fullscreenBtn');
+  const exitFullscreenBtn = document.getElementById('exitFullscreenBtn');
+  const originalGameContainerStyle = {
+  display: gameContainer.style.display,
+  justifyContent: gameContainer.style.justifyContent,
+  alignItems: gameContainer.style.alignItems
+};
+
+
+  function getTileCount() {
+    return canvas.width / gridSize;
+  }
+
+  function enterFullscreen() {
+    gameContainer.classList.add('fullscreen');
+    fullscreenBtn.style.display = 'none';
+    exitFullscreenBtn.style.display = 'block';
+
+    // Berechne die maximale Quadratgröße
+    const maxSize = Math.min(window.innerWidth * 0.9, window.innerHeight * 0.9);
+    const canvasSize = Math.floor(maxSize / fixedTileCount) * fixedTileCount;
+
+    // Canvas anpassen
+    canvas.width = canvasSize;
+    canvas.height = canvasSize;
+    canvas.style.width = canvasSize + 'px';
+    canvas.style.height = canvasSize + 'px';
+
+    // Neue Kachelgröße berechnen
+    gridSize = canvasSize / fixedTileCount;
+
+    // Zentriere das Spiel
+gameContainer.style.display = originalGameContainerStyle.display;
+gameContainer.style.justifyContent = originalGameContainerStyle.justifyContent;
+gameContainer.style.alignItems = originalGameContainerStyle.alignItems;
+
+
+    drawGame();
+  }
+
+
+  function exitFullscreen() {
+    gameContainer.classList.remove('fullscreen');
+    fullscreenBtn.style.display = 'block';
+    exitFullscreenBtn.style.display = 'none';
+    // Reset to default size
+    const defaultSize = fixedTileCount * 20; // z.B. 400px
+    canvas.width = defaultSize;
+    canvas.height = defaultSize;
+    canvas.style.width = '';
+    canvas.style.height = '';
+    gridSize = defaultSize / fixedTileCount;
+
+    drawGame();
+  }
+
+  fullscreenBtn.addEventListener('click', enterFullscreen);
+  exitFullscreenBtn.addEventListener('click', exitFullscreen);
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && gameContainer.classList.contains('fullscreen')) {
+      exitFullscreen();
+    }
+  });
 });

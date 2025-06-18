@@ -6,6 +6,44 @@ document.addEventListener('DOMContentLoaded', () => {
   const scoreElement = document.getElementById('score');
   const startBtn = document.getElementById('startBtn');
   const resetBtn = document.getElementById('resetBtn');
+  const gameContainer = document.getElementById('gameContainerArchery');
+  const fullscreenBtn = document.getElementById('fullscreenBtn');
+  const exitFullscreenBtn = document.getElementById('exitFullscreenBtn');
+
+function enterFullscreen() {
+  gameContainer.classList.add('fullscreen');
+  fullscreenBtn.style.display = 'none';
+  exitFullscreenBtn.style.display = 'inline-block';
+
+  // ⛔ KEINE Änderung von canvas.width / height!
+  // ✅ Nur visuelle Skalierung:
+  canvas.style.width = '47vw';
+  canvas.style.height = '85vh';
+
+  drawGame(); // Optional neu zeichnen
+}
+
+
+function exitFullscreen() {
+  gameContainer.classList.remove('fullscreen');
+  fullscreenBtn.style.display = 'inline-block';
+  exitFullscreenBtn.style.display = 'none';
+
+  canvas.style.width = '';
+  canvas.style.height = '';
+
+  drawGame(); // Optional neu zeichnen
+}
+
+
+fullscreenBtn.addEventListener('click', enterFullscreen);
+exitFullscreenBtn.addEventListener('click', exitFullscreen);
+
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && gameContainer.classList.contains('fullscreen')) {
+    exitFullscreen();
+  }
+});
   
   // Make canvas responsive
   function resizeCanvas() {
