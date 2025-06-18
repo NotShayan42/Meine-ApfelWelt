@@ -1593,7 +1593,7 @@ footer {
     right: 1rem;
   }
   .game-container.fullscreen .snake-canvas{
-    height: 43vh !important;
+    height: 45vh !important;
     width: auto !important;
   }
 
