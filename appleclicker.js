@@ -397,7 +397,7 @@ function createFloatingNumber(x, y, amount) {
   initPrestigeMenu();
   loadGame();
    
- changeTheme('green');
+  updateAppleImageByTheme();
 
   // Save game before page unload
   window.addEventListener('beforeunload', saveGame);
