@@ -136,12 +136,25 @@ function computeMultiplier() {
   
   // Calculate multipliers from prestige points
   function getClickMultiplier() {
-    return 1 + (prestigePoints * 0.1); // 10% increase per prestige point
+    let base = 1 + (prestigePoints * 0.1); // 10% pro Prestige-Punkt
+
+    // Bonus: alle 10 "click"-Upgrades = +10% (×1.1)
+    const clickBonusCount = Math.floor(upgradeCounts.click / 10);
+    base *= Math.pow(1.3, clickBonusCount); // z.B. 1.1^1, 1.1^2 ...
+
+    return base;
   }
   
-  function getPassiveMultiplier() {
-    return 1 + (prestigePoints * 0.05); // 5% increase per prestige point
-  }
+function getPassiveMultiplier() {
+  let base = 1 + (prestigePoints * 0.1);
+  
+  // Bonus: jede 5. Fabrik gibt +50% → also ×1.5
+  const factoryBonusCount = Math.floor(upgradeCounts.factory / 5);
+  base *= Math.pow(1.6, factoryBonusCount); // exponentiell: 1.5^1, 1.5^2 ...
+
+  return base;
+}
+
   
   // Apply prestige multipliers
   function getEffectiveClickPower() {
