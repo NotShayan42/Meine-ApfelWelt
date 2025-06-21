@@ -50,9 +50,6 @@ function computeMultiplier() {
   return baseMultiplier;
 }
 
-
-
-
   // Game state
   let apples = 0;
   let clickPower = 1;
@@ -164,6 +161,17 @@ function getPassiveMultiplier() {
   function getEffectiveApplesPerSecond() {
     return applesPerSecond * getPassiveMultiplier();
   }
+
+  // Nur Prestige-Multiplikator für Klickkraft (ohne Upgrade-Boni)
+function getPrestigeClickMultiplier(pp = prestigePoints) {
+  return 1 + pp * 0.1;
+}
+
+// Nur Prestige-Multiplikator für passive Erzeugung (ohne Upgrade-Boni)
+function getPrestigePassiveMultiplier(pp = prestigePoints) {
+  return 1 + pp * 0.05;
+}
+
   
   // Save game state
   function saveGame() {
@@ -201,15 +209,20 @@ function getPassiveMultiplier() {
     }
   }
 
-    window.resetGame = function() {
-    localStorage.removeItem('appleClickerSave');
-    apples = 0;
-    clickPower = 1;
-    applesPerSecond = 0;
-    Object.keys(upgradeCounts).forEach(k => upgradeCounts[k] = 0);
-    updateDisplays();
-    console.log("Game reset done.");
-  };
+window.resetGame = function () {
+  apples = 0;
+  clickPower = 1;
+  applesPerSecond = 0;
+  prestigePoints = 0;
+  totalApplesCollected = 0;
+  
+  // Zugriff auf upgradeCounts (im Scope vorhanden)
+  Object.keys(upgradeCounts).forEach(k => upgradeCounts[k] = 0);
+
+  updateDisplays();
+  saveGame();
+  console.log("Game vollständig zurückgesetzt.");
+};
 
   
   // Format large numbers
@@ -249,8 +262,9 @@ function getPassiveMultiplier() {
     prestigeBtnGainDisplay.textContent = formatNumber(prestigeGain);
     
     // Update multipliers
-    clickMultiplierDisplay.textContent = `×${getClickMultiplier().toFixed(2)}`;
-    passiveMultiplierDisplay.textContent = `×${getPassiveMultiplier().toFixed(2)}`;
+    clickMultiplierDisplay.textContent = `×${getPrestigeClickMultiplier().toFixed(2)}`;
+    passiveMultiplierDisplay.textContent = `×${getPrestigePassiveMultiplier().toFixed(2)}`;
+
     
     // Enable/disable prestige button
     prestigeBtn.disabled = prestigeGain === 0;
