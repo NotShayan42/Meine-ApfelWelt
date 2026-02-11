@@ -79,6 +79,7 @@ rainbowAppleImg.src = 'rainbowapple.png';
     // Gameover Überprüfen
     if (head.x < 0 || head.x >= tileCount || head.y < 0 || head.y >= tileCount) {
       gameOver = true;
+      drawGame();
       return;
     }
     
@@ -86,6 +87,7 @@ rainbowAppleImg.src = 'rainbowapple.png';
     for (let i = 0; i < snake.length; i++) {
       if (head.x === snake[i].x && head.y === snake[i].y) {
         gameOver = true;
+        drawGame();
         return;
       }
     }
